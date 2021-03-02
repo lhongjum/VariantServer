@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>cn.granitech</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>war</packaging>
+    <artifactId>webmodule</artifactId>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <java.version>1.8</java.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
+        <spring-boot.version>2.3.3.RELEASE</spring-boot.version>
+    </properties>
+
+    <dependencies>
+        <!--
+        <dependency>
+            <groupId>cn.granitech</groupId>
+            <artifactId>variantorm</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        -->
+
+        <!-- -->
+        <dependency>
+            <groupId>cn.granitech</groupId>
+            <artifactId>variantorm</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/variantorm-1.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <!-- -->
+
+        <dependency>
+            <groupId>com.googlecode.aviator</groupId>
+            <artifactId>aviator</artifactId>
+            <version>5.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.nutz</groupId>
+            <artifactId>nutz</artifactId>
+            <version>1.r.68.v20200427</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring-boot.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.49</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup</groupId>
+            <artifactId>javapoet</artifactId>
+            <version>1.13.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope> <!-- 打包时包含scope为system的.jar文件, 但对war打包无效！！ -->
+                </configuration>
+                <version>${spring-boot.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>  <!-- 打war包时包含scope为system的.jar文件！！！ -->
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>${project.basedir}/lib</directory>
+                            <targetPath>WEB-INF/lib/</targetPath>
+                            <includes>
+                                <include>**/*.jar</include>
+                            </includes>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/libs-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

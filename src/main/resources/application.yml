@@ -1,0 +1,42 @@
+logging:
+  level:
+    root: info
+
+server:
+  compression:
+    enabled: true
+    mime-types: 'application/json,application/xml,text/html,text/xml,text/plain'
+    min-response-size: 1024
+
+spring:
+  profiles:
+    include: upload
+  jackson:
+    time-zone: GMT+8 #时区设置为北京时间
+  aop:
+    auto: true #启动aop配置
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3360/variantorm?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
+    sql-script-encoding: UTF-8
+    username: root
+    password: variantdb  #注意：如果密码为数字，前后需加单引号！！
+    hikari:
+      #池中维护的最小空闲连接数
+      minimum-idle: 10
+      #池中最大连接数，包括闲置和使用中的连接
+      maximum-pool-size: 50
+      #连接池的用户定义名称
+      pool-name: hhrHikariCP
+      #连接允许在池中闲置的最长时间(ms)
+      idle-timeout: 30000
+      #池中连接最长生命周期(ms)
+      max-lifetime: 1800000
+      #等待来自池的连接的最大毫秒数(ms)
+      connection-timeout: 30000
+      #设置连接被占用的超时时间(ms)
+      leak-detection-threshold: 40000

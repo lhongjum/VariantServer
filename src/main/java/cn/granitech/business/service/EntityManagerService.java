@@ -10,6 +10,7 @@ import cn.granitech.variantorm.metadata.fieldtype.FieldTypes;
 import cn.granitech.variantorm.persistence.PersistenceManager;
 import cn.granitech.variantorm.pojo.Entity;
 import cn.granitech.variantorm.pojo.Field;
+import cn.granitech.variantorm.util.MDHelper;
 import cn.granitech.web.pojo.KeyValueEntry;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.lang3.StringUtils;
@@ -191,6 +192,11 @@ public class EntityManagerService {
         }
 
         dbMappingManager.updateField(entityCode, field);
+    }
+
+    public boolean isReservedField(String fieldName, String entityName) {
+        Field field = getMetadataManager().getEntity(entityName).getField(fieldName);
+        return MDHelper.isReservedField(field);
     }
 
     //@Transactional

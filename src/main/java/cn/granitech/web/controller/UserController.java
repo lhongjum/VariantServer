@@ -41,7 +41,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseBean login(HttpServletRequest request, @RequestBody LoginInfo loginInfo) {
         if ((loginInfo == null) || StringUtils.isBlank(loginInfo.getUser()) ||
                 StringUtils.isBlank(loginInfo.getPassword())) {
@@ -93,7 +93,7 @@ public class UserController {
         return ResponseHelper.ok(Boolean.TRUE, "success");
     }
 
-    @RequestMapping("/saveUser")
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
     public ResponseBean<FormQueryResult> saveUser(@RequestParam("entity") String entityName,
                                                     @RequestParam("id") String recordId,
                                                     @RequestBody Map<String, Object> dataMap)
@@ -104,8 +104,8 @@ public class UserController {
 
     @RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
     public ResponseBean<Boolean> deleteUser(@RequestParam String userId) {
-        userService.deleteUser( ID.valueOf(userId) );
-        return ResponseHelper.ok(Boolean.TRUE, "success");
+        Boolean result = userService.deleteUser( ID.valueOf(userId) );
+        return ResponseHelper.ok(result, "success");
     }
 
 }

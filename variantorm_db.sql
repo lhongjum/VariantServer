@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `t_democontact` (
   KEY `isDeleted` (`isDeleted`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- 正在导出表  variantorm.t_democontact 的数据：~1 rows (大约)
+-- 正在导出表  variantorm.t_democontact 的数据：~0 rows (大约)
 DELETE FROM `t_democontact`;
 /*!40000 ALTER TABLE `t_democontact` DISABLE KEYS */;
 INSERT INTO `t_democontact` (`autoId`, `demoContactId`, `createdOn`, `createdBy`, `ownerUser`, `ownerDepartment`, `modifiedOn`, `modifiedBy`, `isDeleted`, `c_companyId`, `c_fullName`, `c_mobilePhone`, `c_qqNumber`, `c_wechat`, `c_province`, `c_city`, `c_district`, `c_address`) VALUES
@@ -126,9 +126,9 @@ CREATE TABLE IF NOT EXISTS `t_department` (
   PRIMARY KEY (`autoId`) USING BTREE,
   UNIQUE KEY `departmentId` (`departmentId`) USING BTREE,
   KEY `parentDepartmentId` (`parentDepartmentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4;
 
--- 正在导出表  variantorm.t_department 的数据：~1 rows (大约)
+-- 正在导出表  variantorm.t_department 的数据：~4 rows (大约)
 DELETE FROM `t_department`;
 /*!40000 ALTER TABLE `t_department` DISABLE KEYS */;
 INSERT INTO `t_department` (`autoId`, `departmentId`, `isDeleted`, `parentDepartmentId`, `departmentName`, `description`) VALUES
@@ -144,9 +144,9 @@ CREATE TABLE IF NOT EXISTS `t_department_node` (
   PRIMARY KEY (`autoId`) USING BTREE,
   UNIQUE KEY `departmentNodeId` (`departmentNodeId`) USING BTREE,
   UNIQUE KEY `parentDepartmentId_childDepartmentId` (`parentDepartmentId`,`childDepartmentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=387 DEFAULT CHARSET=utf8mb4;
 
--- 正在导出表  variantorm.t_department_node 的数据：~0 rows (大约)
+-- 正在导出表  variantorm.t_department_node 的数据：~1 rows (大约)
 DELETE FROM `t_department_node`;
 /*!40000 ALTER TABLE `t_department_node` DISABLE KEYS */;
 INSERT INTO `t_department_node` (`autoId`, `departmentNodeId`, `parentDepartmentId`, `childDepartmentId`) VALUES
@@ -169,14 +169,14 @@ CREATE TABLE IF NOT EXISTS `t_form_layout` (
   UNIQUE KEY `layoutName_entityCode` (`layoutName`,`entityCode`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
--- 正在导出表  variantorm.t_form_layout 的数据：~5 rows (大约)
+-- 正在导出表  variantorm.t_form_layout 的数据：~6 rows (大约)
 DELETE FROM `t_form_layout`;
 /*!40000 ALTER TABLE `t_form_layout` DISABLE KEYS */;
 INSERT INTO `t_form_layout` (`autoId`, `formLayoutId`, `createdOn`, `createdBy`, `modifiedOn`, `modifiedBy`, `layoutName`, `entityCode`, `layoutJson`) VALUES
 	(6, '008-d50a2eab-9d23-4cc8-931a-2c6a3d49dde3', '2020-11-06 14:35:24', '021-000000000000000000000000000000000001', '2021-02-14 15:38:19', '021-000000000000000000000000000000000001', '默认表单布局', 21, '{"tabNames":["tabName4132"],"formTabs":[{"title":"用户信息","id":"tab7923","sections":[{"title":"基本信息","name":"sec1","id":"section11195","rows":[{"title":"新增行","id":"row4176","gutter":12,"cells":[{"id":"cell10740","span":12,"fields":[{"reserved":false,"name":"userName","label":"姓名","type":"Text","labelWidth":null,"unDraggable":true}]},{"id":"cell7799","span":12,"fields":[{"reserved":false,"name":"departmentId","label":"用户归属部门","type":"Reference","unDraggable":true,"labelWidth":85}]}]},{"title":"新增行","id":"row6949","gutter":12,"cells":[{"id":"cell9413","span":12,"fields":[{"reserved":false,"name":"loginName","label":"登录账号名","type":"Text","unDraggable":true,"labelWidth":null}]},{"id":"cell2869","span":12,"fields":[{"reserved":false,"name":"loginPwd","label":"登录密码","type":"Password","labelWidth":85,"unDraggable":true}]}]},{"title":"新增行","id":"row7545","gutter":12,"cells":[{"id":"cell6412","span":12,"fields":[{"reserved":false,"name":"jobTitle","label":"职务","type":"Option","unDraggable":true}]},{"id":"cell10398","span":12,"fields":[{"reserved":false,"name":"disabled","label":"是否禁用","type":"Boolean","unDraggable":true}]}]},{"title":"新增行","id":"row4506","gutter":12,"cells":[{"id":"cell14633","span":24,"fields":[{"reserved":false,"name":"roles","label":"权限角色","type":"ReferenceList","unDraggable":true}]}]}],"showSplitter":false,"showSectionTitle":true,"showArrowIcon":true,"openSplitter":false},{"title":"管理信息","name":"sec1","id":"section3382","rows":[{"title":"新增行","id":"row4744","gutter":12,"cells":[{"id":"cell9586","span":12,"fields":[{"reserved":true,"name":"createdBy","label":"创建用户","type":"Reference","unDraggable":true,"labelWidth":null}]},{"id":"cell11368","span":12,"fields":[{"reserved":true,"name":"createdOn","label":"创建时间","type":"DateTime","unDraggable":true,"labelWidth":85}]}]},{"title":"新增行","id":"row10535","gutter":12,"cells":[{"id":"cell9847","span":12,"fields":[{"reserved":true,"name":"modifiedBy","label":"修改用户","type":"Reference","unDraggable":true,"labelWidth":null}]},{"id":"cell14703","span":12,"fields":[{"reserved":true,"name":"modifiedOn","label":"最近修改时间","type":"DateTime","unDraggable":true,"labelWidth":85}]}]},{"title":"新增行","id":"row13678","gutter":12,"cells":[{"id":"cell12759","span":12,"fields":[{"reserved":true,"name":"ownerUser","label":"所属用户","type":"Reference","labelWidth":null,"unDraggable":true}]},{"id":"cell2351","span":12,"fields":[{"reserved":true,"name":"ownerDepartment","label":"所属部门","type":"Reference","labelWidth":85,"unDraggable":true}]}]}],"lineSpacing":10}],"name":"tabName4132"}],"labelPosition":"left","labelAlign":"label-right-align","labelWidth":75,"lineSpacing":12,"hideOnlyTabTitle":true}'),
 	(7, '008-8c871f6e-a2d5-4d0e-a351-cc87b5ca05ae', '2020-11-11 16:42:31', '021-000000000000000000000000000000000001', '2021-02-24 23:29:24', '021-000000000000000000000000000000000001', '默认表单布局', 22, '{"tabNames":["tabName4664"],"formTabs":[{"title":"页签1","id":"tab9548","sections":[{"title":"新增区块","name":"sec1","id":"section11203","rows":[{"title":"新增行","id":"row4808","gutter":12,"cells":[{"id":"cell7962","span":12,"fields":[{"reserved":false,"name":"parentDepartmentId","label":"上级部门","type":"Reference","unDraggable":true,"labelWidth":null}]},{"id":"cell3340","span":12,"fields":[{"reserved":false,"name":"departmentName","label":"部门名称","type":"Text","unDraggable":true,"labelWidth":null}]}]},{"title":"新增行","id":"row1834","gutter":12,"cells":[{"id":"cell7530","span":24,"fields":[{"reserved":false,"name":"description","label":"部门说明","type":"TextArea","unDraggable":true}]}]}],"showSectionTitle":false,"showArrowIcon":false,"showSplitter":false}],"name":"tabName4664"}],"labelPosition":"left","labelAlign":"label-left-align","labelWidth":75,"lineSpacing":12,"hideOnlyTabTitle":true}'),
 	(8, '008-f42c4cec-c91b-4e33-8ae9-e06286a732a4', '2020-11-11 16:44:18', '021-000000000000000000000000000000000001', NULL, NULL, '默认表单布局0', 22, '{"tabNames":["tabName4664"],"formTabs":[{"title":"页签1","id":"tab9548","sections":[{"title":"新增区块","name":"sec1","id":"section11203","rows":[{"title":"新增行","id":"row9965","gutter":12,"cells":[{"id":"cell4508","span":6,"fields":[]},{"id":"cell1916","span":12,"fields":[]}]}]}],"name":"tabName4664"}],"activeTab":{"title":"页签1","id":"tab9548","sections":[{"title":"新增区块","name":"sec1","id":"section11203","rows":[{"title":"新增行","id":"row9965","gutter":12,"cells":[{"id":"cell4508","span":6,"fields":[]},{"id":"cell1916","span":12,"fields":[]}]}]}],"name":"tabName4664"},"activeTabName":"tabName4664","activeSection":null,"activeRow":{"title":"新增行","id":"row6026","gutter":12,"cells":[{"id":"cell10795","span":6,"fields":[{"reserved":false,"name":"departmentName","label":"部门名称","type":"Text","labelWidth":75,"unDraggable":true}]},{"id":"cell5003","span":12,"fields":[{"reserved":false,"name":"parentDepartmentId","label":"上级部门","type":"Reference","labelWidth":75,"unDraggable":true}]}]},"activeCell":null,"activeFieldWrapper":null,"activeFieldLabelWidth":0,"labelAlign":"label-left-align","labelPosition":"left","hideOnlyTabTitle":false}'),
-	(9, '008-a2b505f3-2c7a-43ec-b7ae-66e13637e6f6', '2021-02-10 14:41:22', '021-000000000000000000000000000000000001', '2021-03-02 11:32:06', '021-000000000000000000000000000000000001', '默认表单布局', 122, '{"tabNames":["tabName8104","tabName3221"],"formTabs":[{"title":"页签1","id":"tab7873","sections":[{"title":"基本信息","name":"sec1","id":"section8312","rows":[{"title":"新增行","id":"row2144","gutter":12,"cells":[{"id":"cell9773","span":24,"fields":[{"reserved":false,"name":"companyName","label":"公司名称","type":"Text","unDraggable":true}]}]},{"title":"新增行","id":"row5793","gutter":12,"cells":[{"id":"cell10435","span":12,"fields":[{"reserved":false,"name":"shortName","label":"公司简称","type":"Text","unDraggable":true}]},{"id":"cell10867","span":12,"fields":[{"reserved":false,"name":"CreditCode","label":"纳税人编码","type":"Text","unDraggable":true,"deleted":true}]}]},{"title":"新增行","id":"row10442","gutter":12,"cells":[{"id":"cell3992","span":8,"fields":[{"reserved":false,"name":"phoneNumber","label":"联系电话","type":"Text","unDraggable":true}]},{"id":"cell5563","span":8,"fields":[{"reserved":false,"name":"webSite","label":"网站","type":"Text","unDraggable":true}]},{"id":"cell8889","span":8,"fields":[{"reserved":false,"name":"emailAddress","label":"公司邮箱","type":"Text","unDraggable":true}]}]},{"title":"新增行","id":"row6704","gutter":12,"cells":[{"id":"cell7702","span":12,"fields":[{"reserved":false,"name":"industryType","label":"所属行业","type":"Option","unDraggable":true}]},{"id":"cell8539","span":12,"fields":[]}]},{"title":"新增行","id":"row5858","gutter":12,"cells":[{"id":"cell8361","span":12,"fields":[{"label":"地区选择","name":"Custom3898","componentName":"AreaCascadeSelect","fields":["province","city","district"],"type":"Custom"}]},{"id":"cell11704","span":12,"fields":[{"reserved":false,"name":"address","label":"详细地址","type":"Text","unDraggable":true}]}]}],"showSectionTitle":true,"showArrowIcon":true,"showSplitter":true},{"title":"照片上传区","name":"sec1","id":"section11993","rows":[{"title":"新增行","id":"row3956","gutter":12,"cells":[{"id":"cell5012","span":24,"fields":[{"reserved":false,"name":"OfficePictures","label":"办公场景照片","type":"Picture","unDraggable":true,"deleted":true}]}]}]},{"title":"管理信息","name":"sec1","id":"section5410","rows":[{"title":"新增行","id":"row8003","gutter":12,"cells":[{"id":"cell12882","span":12,"fields":[{"reserved":true,"name":"createdOn","label":"创建时间","type":"DateTime","unDraggable":true}]},{"id":"cell4269","span":12,"fields":[{"reserved":true,"name":"createdBy","label":"创建用户","type":"Reference","unDraggable":true}]}]},{"title":"新增行","id":"row6519","gutter":12,"cells":[{"id":"cell1796","span":12,"fields":[{"reserved":true,"name":"modifiedOn","label":"最近修改时间","type":"DateTime","unDraggable":true}]},{"id":"cell4347","span":12,"fields":[{"reserved":true,"name":"modifiedBy","label":"修改用户","type":"Reference","unDraggable":true}]}]},{"title":"新增行","id":"row5888","gutter":12,"cells":[{"id":"cell7028","span":12,"fields":[{"reserved":true,"name":"ownerUser","label":"所属用户","type":"Reference","unDraggable":true}]},{"id":"cell8900","span":12,"fields":[{"reserved":true,"name":"ownerDepartment","label":"所属部门","type":"Reference","unDraggable":true}]}]}],"showSectionTitle":true,"showArrowIcon":false,"showSplitter":true}],"name":"tabName8104"},{"title":"页签2","id":"tab9966","sections":[{"title":"基本信息","name":"sec1","id":"section4699","rows":[{"title":"新增行","id":"row1462","gutter":12,"cells":[{"id":"cell3973","span":24,"fields":[]}]}]}],"name":"tabName3221"}],"labelPosition":"left","labelAlign":"label-left-align","labelWidth":75,"lineSpacing":16,"hideOnlyTabTitle":false}'),
+	(9, '008-a2b505f3-2c7a-43ec-b7ae-66e13637e6f6', '2021-02-10 14:41:22', '021-000000000000000000000000000000000001', '2021-03-03 11:18:55', '021-000000000000000000000000000000000001', '默认表单布局', 122, '{"tabNames":["tabName8104","tabName3221"],"formTabs":[{"title":"页签1","id":"tab7873","sections":[{"title":"基本信息","name":"sec1","id":"section8312","rows":[{"title":"新增行","id":"row2144","gutter":12,"cells":[{"id":"cell9773","span":24,"fields":[{"reserved":false,"name":"companyName","label":"公司名称","type":"Text","unDraggable":true}]}]},{"title":"新增行","id":"row5793","gutter":12,"cells":[{"id":"cell10435","span":12,"fields":[{"reserved":false,"name":"shortName","label":"公司简称","type":"Text","unDraggable":true}]},{"id":"cell10867","span":12,"fields":[{"reserved":false,"name":"creditCode","label":"纳税人编码","type":"Text","unDraggable":true}]}]},{"title":"新增行","id":"row10442","gutter":12,"cells":[{"id":"cell3992","span":8,"fields":[{"reserved":false,"name":"phoneNumber","label":"联系电话","type":"Text","unDraggable":true}]},{"id":"cell5563","span":8,"fields":[{"reserved":false,"name":"webSite","label":"网站","type":"Text","unDraggable":true}]},{"id":"cell8889","span":8,"fields":[{"reserved":false,"name":"emailAddress","label":"公司邮箱","type":"Text","unDraggable":true}]}]},{"title":"新增行","id":"row6704","gutter":12,"cells":[{"id":"cell7702","span":12,"fields":[{"reserved":false,"name":"industryType","label":"所属行业","type":"Option","unDraggable":true}]},{"id":"cell8539","span":12,"fields":[]}]},{"title":"新增行","id":"row5858","gutter":12,"cells":[{"id":"cell8361","span":12,"fields":[{"label":"地区选择","name":"Custom3898","componentName":"AreaCascadeSelect","fields":["province","city","district"],"type":"Custom"}]},{"id":"cell11704","span":12,"fields":[{"reserved":false,"name":"address","label":"详细地址","type":"Text","unDraggable":true}]}]}],"showSectionTitle":true,"showArrowIcon":true,"showSplitter":true},{"title":"照片上传区","name":"sec1","id":"section11993","rows":[{"title":"新增行","id":"row3956","gutter":12,"cells":[{"id":"cell5012","span":24,"fields":[{"reserved":false,"name":"officePictures","label":"办公场景照片","type":"Picture","unDraggable":true}]}]}]},{"title":"管理信息","name":"sec1","id":"section5410","rows":[{"title":"新增行","id":"row8003","gutter":12,"cells":[{"id":"cell12882","span":12,"fields":[{"reserved":true,"name":"createdOn","label":"创建时间","type":"DateTime","unDraggable":true}]},{"id":"cell4269","span":12,"fields":[{"reserved":true,"name":"createdBy","label":"创建用户","type":"Reference","unDraggable":true}]}]},{"title":"新增行","id":"row6519","gutter":12,"cells":[{"id":"cell1796","span":12,"fields":[{"reserved":true,"name":"modifiedOn","label":"最近修改时间","type":"DateTime","unDraggable":true}]},{"id":"cell4347","span":12,"fields":[{"reserved":true,"name":"modifiedBy","label":"修改用户","type":"Reference","unDraggable":true}]}]},{"title":"新增行","id":"row5888","gutter":12,"cells":[{"id":"cell7028","span":12,"fields":[{"reserved":true,"name":"ownerUser","label":"所属用户","type":"Reference","unDraggable":true}]},{"id":"cell8900","span":12,"fields":[{"reserved":true,"name":"ownerDepartment","label":"所属部门","type":"Reference","unDraggable":true}]}]}],"showSectionTitle":true,"showArrowIcon":false,"showSplitter":true}],"name":"tabName8104"},{"title":"页签2","id":"tab9966","sections":[{"title":"基本信息","name":"sec1","id":"section4699","rows":[{"title":"新增行","id":"row1462","gutter":12,"cells":[{"id":"cell3973","span":24,"fields":[]}]}]}],"name":"tabName3221"}],"labelPosition":"left","labelAlign":"label-right-align","labelWidth":75,"lineSpacing":16,"hideOnlyTabTitle":false}'),
 	(13, '008-6e997cbf-50db-4f85-80fe-7ea7c50c4c5c', '2021-02-10 15:27:45', '021-000000000000000000000000000000000001', '2021-02-10 15:29:48', '021-000000000000000000000000000000000001', '默认表单布局', 123, '{"tabNames":["tabName8197"],"formTabs":[{"title":"页签1","id":"tab12619","sections":[{"title":"基本信息","name":"sec1","id":"section5102","rows":[{"title":"新增行","id":"row4319","gutter":12,"cells":[{"id":"cell8296","span":12,"fields":[{"reserved":false,"name":"fullName","label":"姓名","type":"Text","unDraggable":true}]},{"id":"cell3540","span":12,"fields":[{"reserved":false,"name":"companyId","label":"所属公司","type":"Reference","unDraggable":true}]}]},{"title":"新增行","id":"row4239","gutter":12,"cells":[{"id":"cell5387","span":12,"fields":[{"reserved":false,"name":"mobilePhone","label":"手机号码","type":"Text","unDraggable":true}]},{"id":"cell8647","span":12,"fields":[]}]},{"title":"新增行","id":"row3216","gutter":12,"cells":[{"id":"cell7574","span":12,"fields":[{"reserved":false,"name":"qqNumber","label":"QQ号码","type":"Text","unDraggable":true}]},{"id":"cell477","span":12,"fields":[{"reserved":false,"name":"wechat","label":"微信号","type":"Text","unDraggable":true}]}]}]},{"title":"联系地址","name":"sec1","id":"section10944","rows":[{"title":"新增行","id":"row4211","gutter":12,"cells":[{"id":"cell5188","span":12,"fields":[{"label":"地区选择","name":"Custom9558","componentName":"AreaCascadeSelect","fields":["province","city","district"],"type":"Custom"}]},{"id":"cell7694","span":12,"fields":[]}]},{"title":"新增行","id":"row3020","gutter":12,"cells":[{"id":"cell10483","span":24,"fields":[{"reserved":false,"name":"address","label":"详细地址","type":"Text","unDraggable":true}]}]}]}],"name":"tabName8197"}],"labelPosition":"left","labelAlign":"label-left-align","labelWidth":75,"lineSpacing":16,"hideOnlyTabTitle":false}');
 /*!40000 ALTER TABLE `t_form_layout` ENABLE KEYS */;
 
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `t_meta_entity` (
   KEY `mainEntity` (`mainEntity`)
 ) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4 COMMENT='元数据实体表';
 
--- 正在导出表  variantorm.t_meta_entity 的数据：~14 rows (大约)
+-- 正在导出表  variantorm.t_meta_entity 的数据：~12 rows (大约)
 DELETE FROM `t_meta_entity`;
 /*!40000 ALTER TABLE `t_meta_entity` DISABLE KEYS */;
 INSERT INTO `t_meta_entity` (`autoId`, `entityId`, `name`, `label`, `physicalName`, `entityCode`, `detailEntityFlag`, `mainEntity`, `layoutable`, `listable`, `authorizable`, `shareable`, `assignable`) VALUES
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `t_meta_field` (
   KEY `entityId` (`entityCode`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=464 DEFAULT CHARSET=utf8mb4 COMMENT='元数据实体字段表';
 
--- 正在导出表  variantorm.t_meta_field 的数据：~123 rows (大约)
+-- 正在导出表  variantorm.t_meta_field 的数据：~118 rows (大约)
 DELETE FROM `t_meta_field`;
 /*!40000 ALTER TABLE `t_meta_field` DISABLE KEYS */;
 INSERT INTO `t_meta_field` (`autoId`, `fieldId`, `entityCode`, `name`, `label`, `physicalName`, `type`, `description`, `displayOrder`, `nullable`, `creatable`, `updatable`, `idFieldFlag`, `nameFieldFlag`, `mainDetailFieldFlag`, `defaultMemberOfListFlag`, `referTo`, `referenceSetting`, `fieldViewModel`) VALUES
@@ -268,7 +268,7 @@ INSERT INTO `t_meta_field` (`autoId`, `fieldId`, `entityCode`, `name`, `label`, 
 	(8, '002-fd89c66e-e41b-11ea-bf5a-1cbfc037aa76', 3, 'displayOrder', '显示顺序', 'displayOrder', 'Integer', NULL, 0, 1, 1, 1, 0, 0, 0, 1, '', '', ' '),
 	(99, '002-d913a2e1-f0e9-4c47-a023-c157b2ef4018', 22, 'departmentId', '部门Id主键', 'departmentId', 'PrimaryKey', NULL, 0, 0, 0, 0, 1, 0, 0, 0, '', '', 'null'),
 	(100, '002-e59b2ce5-e787-4d1c-a5f4-bee1488f0aeb', 22, 'parentDepartmentId', '上级部门', 'parentDepartmentId', 'Reference', NULL, 0, 0, 1, 1, 0, 0, 0, 1, 'Department,', '[{"entityName":"Department","fieldList":["parentDepartmentId","departmentName"]}]', '{"searchDialogWidth":520}'),
-	(101, '002-270c7289-7981-4cde-871f-77dfe96e0dac', 22, 'departmentName', '部门名称', 'departmentName', 'Text', NULL, 0, 0, 0, 0, 0, 1, 0, 1, '', '', 'null'),
+	(101, '002-270c7289-7981-4cde-871f-77dfe96e0dac', 22, 'departmentName', '部门名称', 'departmentName', 'Text', NULL, 0, 0, 1, 1, 0, 1, 0, 1, '', '[]', '{}'),
 	(102, '002-f79eafe9-bbfc-4f90-b841-d7e5cce5a788', 21, 'userId', '用户Id主键', 'userId', 'PrimaryKey', NULL, 0, 0, 0, 0, 1, 0, 0, 0, '', '', 'null'),
 	(103, '002-58c9cfa1-bbc6-4079-aaf2-ea885b2407af', 21, 'createdOn', '创建时间', 'createdOn', 'DateTime', NULL, 0, 0, 0, 0, 0, 0, 0, 0, '', '', 'null'),
 	(104, '002-59f459d4-e463-4716-bff8-703f9ba0fd66', 21, 'createdBy', '创建用户', 'createdBy', 'Reference', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'User,', '', 'null'),
@@ -277,9 +277,9 @@ INSERT INTO `t_meta_field` (`autoId`, `fieldId`, `entityCode`, `name`, `label`, 
 	(107, '002-e7a92f3f-47ae-4a40-90ea-c570187d9500', 21, 'ownerUser', '所属用户', 'ownerUser', 'Reference', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'User,', '', 'null'),
 	(108, '002-710406e2-dbb3-474b-8aa0-66b170f6c290', 21, 'ownerDepartment', '所属部门', 'ownerDepartment', 'Reference', NULL, 0, 0, 0, 0, 0, 0, 0, 0, 'Department,', '', 'null'),
 	(109, '002-c4f03472-3471-4fe1-a124-72b94491328c', 21, 'departmentId', '用户归属部门', 'departmentId', 'Reference', NULL, 0, 0, 1, 1, 0, 0, 0, 1, 'Department,', '[{"entityName":"Department","fieldList":["departmentName","parentDepartmentId"]}]', '{"searchDialogWidth":510}'),
-	(110, '002-2bfe8fa8-cf67-4e32-aacd-4553c1162aff', 21, 'userName', '姓名', 'userName', 'Text', NULL, 0, 0, 1, 1, 0, 1, 0, 1, '', NULL, '{"minLength":2,"maxLength":15}'),
+	(110, '002-2bfe8fa8-cf67-4e32-aacd-4553c1162aff', 21, 'userName', '用户名称', 'userName', 'Text', NULL, 0, 0, 1, 1, 0, 1, 0, 1, '', '[]', '{"minLength":2,"maxLength":15}'),
 	(140, '002-aa3f6493-8dff-4e74-ada1-b7d82682ffd9', 21, 'loginPwd', '登录密码', 'loginPwd', 'Password', NULL, 0, 0, 1, 1, 0, 0, 0, 0, '', NULL, '{}'),
-	(141, '002-1af09034-a6cc-4f11-a1c6-b77f1064051a', 21, 'loginName', '登录账号名', 'loginName', 'Text', NULL, 0, 0, 1, 1, 0, 0, 0, 0, '', NULL, NULL),
+	(141, '002-1af09034-a6cc-4f11-a1c6-b77f1064051a', 21, 'loginName', '登录账号名', 'loginName', 'Text', NULL, 0, 0, 1, 1, 0, 0, 0, 0, '', '[]', '{"validators":["letterStartNumberIncluded"]}'),
 	(247, '002-1d829a90-0df4-11eb-9b4d-1cbfc037aa76', 4, 'tagItemId', 'id主键', 'tagItemId', 'PrimaryKey', NULL, 0, 0, 1, 0, 1, 0, 0, 0, '', '', ' '),
 	(248, '002-932cecba-0df4-11eb-9b4d-1cbfc037aa76', 4, 'entityName', '实体名称', 'entityName', 'Text', NULL, 0, 0, 1, 0, 0, 0, 0, 1, '', '', ' '),
 	(250, '002-e012ce28-0df4-11eb-9b4d-1cbfc037aa76', 4, 'fieldName', '字段名称', 'fieldName', 'Text', NULL, 0, 0, 1, 0, 0, 1, 0, 1, '', '', ' '),
@@ -456,15 +456,15 @@ CREATE TABLE IF NOT EXISTS `t_reference_list_map` (
   UNIQUE KEY `entityName_fieldName_objectId_toId` (`entityName`,`fieldName`,`objectId`,`toId`),
   KEY `objectId` (`objectId`),
   KEY `to` (`toId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COMMENT='多对多引用字段中间表';
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COMMENT='多对多引用字段中间表';
 
 -- 正在导出表  variantorm.t_reference_list_map 的数据：~3 rows (大约)
 DELETE FROM `t_reference_list_map`;
 /*!40000 ALTER TABLE `t_reference_list_map` DISABLE KEYS */;
 INSERT INTO `t_reference_list_map` (`autoId`, `mapId`, `entityName`, `fieldName`, `objectId`, `toId`, `timestamp`) VALUES
 	(29, '005-b637c372-0d45-4ead-b322-3c0b5c31d444', 'User', 'roles', '021-000000000000000000000000000000000001', '023-000000000000000000000000000000000001', '2021-02-24 12:11:13'),
-	(32, '005-de90b8c4-b7d5-46b3-81ba-3cc38b4d6460', 'User', 'roles', '021-1a7fc78f-071e-400f-b780-629fc137e223', '023-000000000000000000000000000000000001', '2021-02-24 22:33:35'),
-	(33, '005-95760376-19d5-4d82-9370-b69cef06273e', 'User', 'roles', '021-1a7fc78f-071e-400f-b780-629fc137e223', '023-a2dc1582-62f4-452c-9a5d-a09c675ace41', '2021-02-24 22:33:35');
+	(52, '005-32474c0c-2bb8-41fb-8c45-7a329911612c', 'User', 'roles', '021-1a7fc78f-071e-400f-b780-629fc137e223', '023-000000000000000000000000000000000001', '2021-03-03 18:21:18'),
+	(53, '005-385c51b0-2ce2-4684-8fac-4c9162f2f5dc', 'User', 'roles', '021-1a7fc78f-071e-400f-b780-629fc137e223', '023-a2dc1582-62f4-452c-9a5d-a09c675ace41', '2021-03-03 18:21:18');
 /*!40000 ALTER TABLE `t_reference_list_map` ENABLE KEYS */;
 
 -- 导出  表 variantorm.t_role 结构
@@ -483,7 +483,7 @@ CREATE TABLE IF NOT EXISTS `t_role` (
   PRIMARY KEY (`autoId`) USING BTREE,
   UNIQUE KEY `roleId` (`roleId`) USING BTREE,
   KEY `isDeleted` (`isDeleted`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 -- 正在导出表  variantorm.t_role 的数据：~2 rows (大约)
 DELETE FROM `t_role`;
@@ -551,7 +551,7 @@ CREATE TABLE IF NOT EXISTS `t_tag_item` (
   UNIQUE KEY `entityName_fieldName_value` (`entityName`,`fieldName`,`value`),
   UNIQUE KEY `tagItemId` (`tagItemId`),
   KEY `entityName_fieldName` (`entityName`,`fieldName`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 -- 正在导出表  variantorm.t_tag_item 的数据：~5 rows (大约)
 DELETE FROM `t_tag_item`;
@@ -585,14 +585,14 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   UNIQUE KEY `userId` (`userId`) USING BTREE,
   KEY `ownerUser` (`ownerUser`) USING BTREE,
   KEY `ownerDepartment` (`ownerDepartment`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
 -- 正在导出表  variantorm.t_user 的数据：~2 rows (大约)
 DELETE FROM `t_user`;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
 INSERT INTO `t_user` (`autoId`, `userId`, `createdOn`, `createdBy`, `ownerUser`, `ownerDepartment`, `modifiedOn`, `modifiedBy`, `isDeleted`, `departmentId`, `userName`, `loginPwd`, `loginName`, `c_jobTitle`, `disabled`) VALUES
 	(1, '021-000000000000000000000000000000000001', '2020-08-24 14:02:44', '021-000000000000000000000000000000000001', '021-000000000000000000000000000000000001', '022-000000000000000000000000000000000001', '2021-02-24 12:11:13', '021-000000000000000000000000000000000001', 0, '022-000000000000000000000000000000000001', '系统管理员', 'admin', 'admin', 1, 0),
-	(3, '021-1a7fc78f-071e-400f-b780-629fc137e223', '2021-02-22 16:19:08', '021-000000000000000000000000000000000001', '021-000000000000000000000000000000000001', '022-000000000000000000000000000000000001', '2021-02-24 22:33:36', '021-000000000000000000000000000000000001', 0, '022-000000000000000000000000000000000001', 'ttt06', '123456', 'test06', 1, 0);
+	(3, '021-1a7fc78f-071e-400f-b780-629fc137e223', '2021-02-22 16:19:08', '021-000000000000000000000000000000000001', '021-000000000000000000000000000000000001', '022-000000000000000000000000000000000001', '2021-03-03 18:21:19', '021-000000000000000000000000000000000001', 0, '022-000000000000000000000000000000000001', 'test006', '123456', 'test006', 1, 0);
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

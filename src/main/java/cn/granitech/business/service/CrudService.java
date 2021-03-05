@@ -174,7 +174,6 @@ public class CrudService extends BaseService {
             }
         });
 
-        //return new FormQueryResult(layoutJson, null, savedRecord, labelsMap);
         return new FormQueryResult(null, null, savedRecord, labelsMap, deletedFields);
     }
 
@@ -185,7 +184,6 @@ public class CrudService extends BaseService {
         String filter = String.format("[%s] = :entityId", entity.getIdField().getName());
         Map<String, Object> paramMap = new HashMap<String, Object>() {{
             put("entityId", entityId);
-            //put("entityId", entityId.toString());  //传入ID对象会将参数转为二进制值格式，导致查询不出结果！！？
         }};
         List<EntityRecord> resultList = recordQuery.query(entity.getName(), filter, paramMap, null, null,
                 fieldNames);

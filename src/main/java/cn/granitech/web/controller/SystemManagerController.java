@@ -222,6 +222,10 @@ public class SystemManagerController extends BaseController {
             throw new IllegalArgumentException("name or label must be not null");
         }
 
+        if (entityManagerService.isReservedField(field.getName(), entityName)) {
+            throw new IllegalArgumentException("系统字段不可修改!");
+        }
+
         Entity entity = entityManagerService.getMetadataManager().getEntity(entityName);
         entityManagerService.updatePlainField(entity.getEntityCode(), field);
 
